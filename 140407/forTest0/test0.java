@@ -1,3 +1,4 @@
+// test0.java //
 class test0 {
 	public static int test(int i, int j){
 		return (i * j);

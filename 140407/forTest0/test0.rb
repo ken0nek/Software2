@@ -7,9 +7,9 @@ def main()
 	j = 3
 	k = test(i, j)
 	if k > 5
-		print ">5"
+		print ">5\n"
 	else
-		print "<=5"
+		print "<=5\n"
 	end
 end
 

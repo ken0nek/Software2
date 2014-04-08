@@ -18,6 +18,5 @@ int main(int argc, char const *argv[])
 	} else {
 		printf("<=5\n");
 	}
-
 	return 0;
 }

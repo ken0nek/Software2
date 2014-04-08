@@ -7,8 +7,8 @@ main = () ->
 	j = 3
 	k = test(i, j)
 	if k > 5
-		console.log ">5\n"
+		console.log ">5"
 	else
-		console.log "<=5\n"
+		console.log "<=5"
 
 main()

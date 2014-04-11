@@ -24,10 +24,8 @@ java: test0.java
 	javac $^
 	java $(basename $^)
 
-jsc = /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc
-
 js: test0.js
-	$(jsc) $^
+	rhino $^
 
 coffee: test0.coffee
 	coffee $^

@@ -1,0 +1,11 @@
+(defun fib (n)
+                (setq a 1)
+                (setq b 1)
+                (setq counter 2)
+                (setq ret 1)
+
+                (while (<= counter n)
+                  (setq ret (+ a b))
+                  (setq b a)
+                  (setq a ret)
+                  (setq counter (+ counter 1))) ret)

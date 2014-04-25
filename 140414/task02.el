@@ -1,0 +1,5 @@
+(defun myName ()
+	(interactive)
+	(message "Insert my name")
+	(insert "Ken Tominaga\n"))
+(define-key global-map "\C-ch" 'myName)

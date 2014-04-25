@@ -1,3 +1,3 @@
-(defun Fib (n) (if (= n 1) 1
-                 (if (= n 2) 1
-                   (+ (Fib (- n 1)) (Fib (- n 2))))))
+(defun fib (n) (if (or (zerop n) (= n 1))
+                   1
+                   (+ (fib (- n 1)) (fib (- n 2)))))

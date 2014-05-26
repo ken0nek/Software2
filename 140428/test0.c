@@ -1,5 +1,6 @@
 /* test0.c */
 #include <stdio.h>
+#include <stdlib.h>
 
 /*
  *引数: 整数i, j
@@ -13,10 +14,10 @@ int test(int i, int j)
 
 int main(int argc, char const *argv[])
 {
-	int i, j /* 入力となる整数i, j */
+	int i, j; /* 入力となる整数i, j */
 	int k; /* iとjの和 */
-	i = 3;
-	j = 2;
+	i = atoi(argv[1]);
+    j = atoi(argv[2]);
 
 	/* iとjを足して、kに代入する */
 	k = test(i, j);

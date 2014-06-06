@@ -4,26 +4,26 @@ using namespace std;
 
 class Rat
 {
-private:
-	int numerator;
-	int denominator;
-public:
-	Rat() {};
-	Rat(int n, int d) {
-		numerator = n;
-		denominator = d;
-	}
-	int GetNumer() const {return numerator;}
-	int GetDenom() const {return denominator;}
+	private:
+		int numerator;
+		int denominator;
+	public:
+		Rat() {};
+		Rat(int n, int d) {
+			numerator = n;
+			denominator = d;
+		}
+		int GetNumer() const {return numerator;}
+		int GetDenom() const {return denominator;}
 
-	Rat operator+(const Rat& r)
-	{
-		return Rat(((GetNumer() * r.GetDenom()) + (GetDenom() * r.GetNumer())), (GetDenom() * r.GetDenom()));
-	}
-	Rat operator*(const Rat& r)
-	{
-		return Rat((GetNumer() * r.GetNumer()), (GetDenom() * r.GetDenom()));
-	}
+		Rat operator+(const Rat& r)
+		{
+			return Rat(((GetNumer() * r.GetDenom()) + (GetDenom() * r.GetNumer())), (GetDenom() * r.GetDenom()));
+		}
+		Rat operator*(const Rat& r)
+		{
+			return Rat((GetNumer() * r.GetNumer()), (GetDenom() * r.GetDenom()));
+		}
 };
 
 ostream& operator << (ostream& os, const Rat& r)

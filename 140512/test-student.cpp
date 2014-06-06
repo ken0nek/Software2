@@ -13,5 +13,11 @@ int main(int argc, char const *argv[])
 	printf("student name = %s (%d)\n", s1.GetName(), s1.GetGrade());
 	printf("student name = %s (%d)\n", s2.GetName(), s2.GetGrade());
 
+	s1.Promotion();
+	s2.Promotion();
+
+	printf("student name = %s (%d) next year\n", s1.GetName(), s1.GetGrade());
+	printf("student name = %s (%d) next year\n", s2.GetName(), s2.GetGrade());
+
 	return 0;
 }

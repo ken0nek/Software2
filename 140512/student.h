@@ -22,4 +22,8 @@ class Student {
 		char* GetName() {
 			return name;
 		}
+
+		void Promotion() {
+			grade++;
+		}
 };

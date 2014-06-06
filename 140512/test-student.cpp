@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <string.h>
 #include "student.h"
 
 int main(int argc, char const *argv[])
 {
-	Student s1("tominaga");
-	Student s2("konishi");
+	Student s1("Tominaga");
+	Student s2("Konishi");
 
 	s1.SetGrade(3);
 	s2.SetGrade(2);

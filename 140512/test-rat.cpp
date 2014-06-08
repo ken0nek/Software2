@@ -47,5 +47,7 @@ int main()
 	cerr << one_half * one_third << endl;
 
 	cerr << liner_combination(1, 2, 3, 4) << endl;
+	cerr << liner_combination(1.1, 2.1, 3.1, 4.1) << endl;
+	cerr << liner_combination(1.2f, 2.2f, 3.2f, 4.2f) << endl;
 	cerr << liner_combination(one_half, one_half, one_third, one_third) << endl;
 }

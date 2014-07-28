@@ -1,0 +1,169 @@
+	.section	__TEXT,__text,regular,pure_instructions
+	.globl	_main
+	.align	4, 0x90
+_main:                                  ## @main
+	.cfi_startproc
+## BB#0:
+	pushq	%rbp
+Ltmp3:
+	.cfi_def_cfa_offset 16
+Ltmp4:
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+Ltmp5:
+	.cfi_def_cfa_register %rbp
+	pushq	%rbx
+	subq	$104, %rsp
+Ltmp6:
+	.cfi_offset %rbx, -24
+	leaq	L_.str(%rip), %rax
+	leaq	-48(%rbp), %rcx
+	leaq	-40(%rbp), %rdx
+	movq	___stack_chk_guard@GOTPCREL(%rip), %r8
+	movq	(%r8), %r8
+	movq	%r8, -16(%rbp)
+	movl	$0, -20(%rbp)
+	movl	%edi, -24(%rbp)
+	movq	%rsi, -32(%rbp)
+	movq	L_main.a(%rip), %rsi
+	movq	%rsi, -40(%rbp)
+	movq	L_main.b(%rip), %rsi
+	movq	%rsi, -48(%rbp)
+	movl	$4, -60(%rbp)
+	movl	$1, -64(%rbp)
+	movl	$0, -68(%rbp)
+	## InlineAsm Start
+	movq (%rdx),%mm0
+	## InlineAsm End
+	## InlineAsm Start
+	movq (%rcx),%mm1
+	## InlineAsm End
+	movw	-40(%rbp), %r9w
+	movq	%rax, -80(%rbp)         ## 8-byte Spill
+	movw	%r9w, %ax
+	## InlineAsm Start
+	nop
+	## InlineAsm End
+	movw	-48(%rbp), %bx
+	## InlineAsm Start
+	nop
+	## InlineAsm End
+	## InlineAsm Start
+	add %eax,%ebx
+	## InlineAsm End
+	## InlineAsm Start
+	nop
+	## InlineAsm End
+	movl	%ebx, -56(%rbp)
+	## InlineAsm Start
+	emms
+	## InlineAsm End
+	movl	-68(%rbp), %esi
+	movq	-80(%rbp), %rdi         ## 8-byte Reload
+	movb	$0, %al
+	callq	_printf
+	movl	$0, -60(%rbp)
+	movl	%eax, -84(%rbp)         ## 4-byte Spill
+LBB0_1:                                 ## =>This Inner Loop Header: Depth=1
+	cmpl	$4, -60(%rbp)
+	jge	LBB0_4
+## BB#2:                                ##   in Loop: Header=BB0_1 Depth=1
+	leaq	L_.str1(%rip), %rdi
+	movslq	-60(%rbp), %rax
+	movswl	-40(%rbp,%rax,2), %esi
+	movb	$0, %al
+	callq	_printf
+	movl	%eax, -88(%rbp)         ## 4-byte Spill
+## BB#3:                                ##   in Loop: Header=BB0_1 Depth=1
+	movl	-60(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -60(%rbp)
+	jmp	LBB0_1
+LBB0_4:
+	leaq	L_.str2(%rip), %rdi
+	movb	$0, %al
+	callq	_printf
+	movl	$0, -60(%rbp)
+	movl	%eax, -92(%rbp)         ## 4-byte Spill
+LBB0_5:                                 ## =>This Inner Loop Header: Depth=1
+	cmpl	$4, -60(%rbp)
+	jge	LBB0_8
+## BB#6:                                ##   in Loop: Header=BB0_5 Depth=1
+	leaq	L_.str1(%rip), %rdi
+	movslq	-60(%rbp), %rax
+	movswl	-48(%rbp,%rax,2), %esi
+	movb	$0, %al
+	callq	_printf
+	movl	%eax, -96(%rbp)         ## 4-byte Spill
+## BB#7:                                ##   in Loop: Header=BB0_5 Depth=1
+	movl	-60(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -60(%rbp)
+	jmp	LBB0_5
+LBB0_8:
+	leaq	L_.str2(%rip), %rdi
+	movb	$0, %al
+	callq	_printf
+	movl	$0, -60(%rbp)
+	movl	%eax, -100(%rbp)        ## 4-byte Spill
+LBB0_9:                                 ## =>This Inner Loop Header: Depth=1
+	cmpl	$2, -60(%rbp)
+	jge	LBB0_12
+## BB#10:                               ##   in Loop: Header=BB0_9 Depth=1
+	leaq	L_.str1(%rip), %rdi
+	movslq	-60(%rbp), %rax
+	movl	-56(%rbp,%rax,4), %esi
+	movb	$0, %al
+	callq	_printf
+	movl	%eax, -104(%rbp)        ## 4-byte Spill
+## BB#11:                               ##   in Loop: Header=BB0_9 Depth=1
+	movl	-60(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -60(%rbp)
+	jmp	LBB0_9
+LBB0_12:
+	leaq	L_.str2(%rip), %rdi
+	movb	$0, %al
+	callq	_printf
+	movq	___stack_chk_guard@GOTPCREL(%rip), %rdi
+	movq	(%rdi), %rdi
+	cmpq	-16(%rbp), %rdi
+	movl	%eax, -108(%rbp)        ## 4-byte Spill
+	jne	LBB0_14
+## BB#13:                               ## %SP_return
+	movl	$0, %eax
+	addq	$104, %rsp
+	popq	%rbx
+	popq	%rbp
+	ret
+LBB0_14:                                ## %CallStackCheckFailBlk
+	callq	___stack_chk_fail
+	.cfi_endproc
+
+	.section	__TEXT,__literal8,8byte_literals
+	.align	1                       ## @main.a
+L_main.a:
+	.short	1                       ## 0x1
+	.short	2                       ## 0x2
+	.short	3                       ## 0x3
+	.short	4                       ## 0x4
+
+	.align	1                       ## @main.b
+L_main.b:
+	.short	65532                   ## 0xfffc
+	.short	65533                   ## 0xfffd
+	.short	65534                   ## 0xfffe
+	.short	65535                   ## 0xffff
+
+	.section	__TEXT,__cstring,cstring_literals
+L_.str:                                 ## @.str
+	.asciz	"%3d\n"
+
+L_.str1:                                ## @.str1
+	.asciz	" %3d"
+
+L_.str2:                                ## @.str2
+	.asciz	"\n"
+
+
+.subsections_via_symbols

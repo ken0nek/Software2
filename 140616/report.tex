@@ -1,0 +1,218 @@
+%http://ja.wikipedia.org/wiki/Hardware_Abstract_Layer        File: report.tex
+%     Created: Wed Jun 18 12:00 PM 2014 J
+% Last Change: Wed Jun 18 12:00 PM 2014 J
+%
+\documentclass[a4paper, twocolumn]{jarticle}
+\usepackage[top=30truemm,bottom=30truemm,left=25truemm,right=25truemm]{geometry}
+\geometry{letterpaper}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{amssymb}
+
+\title{ソフトウェア第二\\2014年6月16日資料課題}
+\author{和田健太郎}
+\西暦
+\date{\today}
+
+\begin{document}
+\maketitle
+%\section{}
+\begin{description}
+  \item[ディスパッチャ] \mbox{ }\\
+    マイクロプログラム制御ユニット内で, マクロ命令中のフィールドに基づいて
+    次のマイクロ命令を選択する処理をディスパッチを言うが, 
+    これを実現するために動的な命令のスケジューリングを行う. 
+    \cite{ref:computer-architecture}
+  \item[execv] \mbox{ }\\
+    コマンドライン引数群をポインタ配列として関数に渡し, 
+    該当するプロセスを置き換える. 
+    \cite{ref:exec}
+  \item[CreateProcess] \mbox{ }\\
+    指定された実行可能ファイルを実行する新しい1個のプロセスとそのプロセスの
+    プライマリスレッドを作成する. 
+    \cite{ref:create-process}
+  \item[PPID] \mbox{ }\\
+    すべてのプロセスが持つ親プロセスのユニークなIDのこと. \cite{ref:ppid}
+  \item[タイムスライス] \mbox{ }\\
+    プロセス管理の時間単位のこと. \cite{ref:time-slice}
+  \item[排他制御] \mbox{ }\\
+    複数のプロセスが利用できるコンピュータの資源に対し, 
+    同時アクセスにより競合が発生する場合に, あるプロセスに独占的に
+    利用させている間は他のプロセスからのアクセスをロックする処理. 
+    \cite{ref:exclusive-control}
+  \item[セマフォ] \mbox{ }\\
+    平行して動作しているプロセス間での同期や割り込み処理の制御を行う
+    機構. \cite{ref:semaphore}
+  \item[pthread] \mbox{ }\\
+    スレッドの生成や操作のAPIを定義したもの.
+  \item[mutex] \mbox{ }\\
+    複数の処理が同時期に実行されると破綻をきたす部分
+    (クリティカルセクション)において, 不可分操作の不可分性を
+    確保するための同期機構の一種. 
+    \cite{ref:mutex}\cite{ref:critical-section}
+  \item[条件変数] \mbox{ }\\
+    プロセスは互いに自身のイベントを通知する手段を持っている必要があるが, 
+    そのための条件処理を行う際に利用される変数のこと.
+    \cite{ref:condition-variables}
+  \item[スレッドセーフ] \mbox{ }\\
+    マルチスレッドの環境で, 複数のスレッドから同時に利用されても正常に
+    動作すること. \cite{ref:thread-safe}
+  \item[リエントラント] \mbox{ }\\
+    プログラムが実行の途中で割り込まれ, 完了前に再度呼び出され実行されても
+    安全だという性質のこと. \cite{ref:reentrant}
+  \item[SMP] \mbox{ }\\
+    特定のCPUに非対称的に割り付けられた処理に依存せず, 
+    すべてのCPUに対して対照的, 均一的に処理が割り振られた複数プロセッサ
+    による並列処理方式のこと. \cite{ref:smp}
+  \item[クロスバースイッチ] \mbox{ }\\
+    複数のCPUやメモリの間でデータをやりとりする際, 
+    経路を動的に選択する装置. \cite{ref:crossbar}
+  \item[クラスタ・GRID] \mbox{ }\\
+    クラスタ・GRIDは一般に複数のマシンがディスクを共用した
+    シェアードディスク構成を指す. \cite{ref:cluster}
+  \item[LRU] \mbox{ }\\
+    限られた大きさの一時保管場所において, 何を残して何を捨てるかを
+    決定するためのアルゴリズムの一つ. キャッシュメモリの管理やOSの
+    仮想記憶(仮想メモリ)などで利用される. \cite{ref:lru}
+  \item[TLB] \mbox{ }\\
+    CPUが仮想アドレスと論理アドレスとの対応情報を一時的に保存しておく
+    バッファメモリのこと. \cite{ref:tlb}
+  \item[TLBミス] \mbox{ }\\
+    要求したアドレスがTLB内にない場合のことをいい, この場合には
+    アドレス変換のために複数箇所のメモリの内容を読み取り, そこから
+    物理メモリの計算を行う処理が必要である. \cite{ref:tlb-wiki}
+  \item[フラグメーション] \mbox{ }\\
+    ハードディスクへのファイルの書き込み・消去を繰り返していくことで, 
+    連続した大きな空き領域が次第に少なくなり, 
+    新たな書き込みにおいてファイルが小さな断片に分割されてしまう現象のこと. 
+    これを解消する操作としてディスクフラデフラグメーションがある. 
+    \cite{ref:fragmation}
+  \item[セグメンテーション] \mbox{ }\\
+    メモリ管理の方法で, メモリを動的に確保するためにプログラムやデータをセグメントやセクション
+    によって管理する. \cite{ref:seg}
+  \item[トロイの木馬]\mbox{ }\\
+    正体を偽ってコンピュータへ侵入し, データ消去やファイルの外部流出, 他コンピュータへの攻撃
+    などの破壊活動を行うプログラムのことで, コンピュータウイルスのように寄生や増殖などは
+    行わない. \cite{ref:trojan}
+  \item[スプーフィング]\mbox{ }\\
+    他人のユーザIDやパスワードを盗用し, そのユーザになりすましてネットワーク上で活動することをいう. 
+    本来そのユーザしか見られない情報を得たり, 悪事を働いてそのユーザに責任を押し付けたりする. 
+    \cite{ref:spoofing}
+  \item[バックドア]\mbox{ }
+    ハッカーやクラッカーの攻撃によってサーバに仕掛けられた第二の侵入経路のことをいう. 
+    経路でないため, 設置後はより容易に侵入されるようになることが多い. 
+    \cite{ref:backdoor}
+  \item[CERT]\mbox{ }\\
+    セキュリティを管理する組織であるComputer Emergency Response Teamの略称で, 
+    ネットワークに関する不正アクセス, 不正プログラム, システムの脆弱性問題などに関して, 
+    情報の収集, 分析, 結果報告を行う組織. \cite{ref:cert}
+  \item[FAT]\mbox{}\\
+    Microsoft社製のOSで利用されるファイルシステムであり, フロッピーディスクやハードディスクの中に記憶されるデータの管理を行う. 
+    \cite{ref:fat}
+  \item[NFS]\mbox{ }\\
+    Network File Systemの略称で, UNIXシステムで利用されるファイル共有システムをいう. 
+    UNIX系OSにおける標準的な分散ファイルシステムである. \cite{ref:nfs}
+  \item[samba]\mbox{ }\\
+    UNIXでSMBを使ったサービスを提供するためのソフトウェア. 
+    SMBとは主にWindowsで使用されているアプリケーション層部分の独自通信プロトコルの総称である. 
+    ネットワークを通じてWindowsマシンにファイル共有やプリンタ共有などのサービスを提供することを可能にする.
+    \cite{ref:samba}\cite{ref:smb}
+  \item[メモリマップド IO]\mbox{ }\\
+    CPUがI/O(入出力)デバイスにアクセスするための命令を, 
+    メインメモリへアクセスするための命令と同じアドレス空間で扱う方式. 
+    CPUのアドレス空間をメインメモリと共有することによって, 
+    I/Oデバイスとメインメモリを同じ命令によって扱うことを実現している. 
+    \cite{ref:memorymaped}
+  \item[ビジーウェイト]\mbox{ }\\
+    マルチプロセッサ環境においては, CPUは資源にアクセスできるようになるまで待つ場合があるが, 
+    この状態をビジーウェイトという. \cite{ref:busy}
+  \item[volatile]\mbox{ }\\
+    揮発性メモリといい, 電源を供給しないと記憶を保持しないメモリのことを指す. 
+    \cite{ref:volatile}
+  \item[キャラクタデバイス]\mbox{ }\\
+    データの入出力をバイト単位で行うデバイスのこと. データの読み書きが一方向であることが特徴. 
+    \cite{ref:chara}
+  \item[ブロックデバイス]\mbox{ }\\
+    データの読み書きがある大きさの単位でランダムに行えるデバイス. 
+    読み書きの順序を自由に変えてアクセスできる.
+    \cite{ref:block}
+  \item[MULTICS]\mbox{ }\\
+    1965年から2000年までのタイムシェアリングOSである. 研究として始まり, その後のOSの発展
+    に大きな影響をもたらした. \cite{ref:multics}
+  \item[POSIX]\mbox{ }\\
+    Portable Operating System Interface Xの略で, 異なるOS実装に共通のAPIを定めることによって, 
+    移植性の高いアプリケーションの開発を容易にするための規格である. \cite{ref:posix}
+  \item[ブートローダ]\mbox{ }\\
+    コンピュータの起動直後に動作し, OSをディスクから読み込んで起動するプログラム. 
+    これによってデュアルブートなどが実現している. 
+    \cite{ref:boot-loader}
+  \item[カーネルビルド]\mbox{ }\\
+    アプリケーションとCPU, メモリ, デバイスなどのハードウェアのやり取りの仲介をするのが
+    カーネルである, ビルドの際に設定を変更することが可能. 
+    \cite{ref:kernel} \cite{ref:kbuild}
+  \item[GPL]\mbox{ }\\
+    GNU GPLとも呼ばれるが, GNUプロジェクトにおいてリチャード・ストールマンによって作成された
+    フリーソフトウェアライセンス. \cite{ref:gpl}
+  \item[モノリシック]\mbox{ }\\
+    全体が1つのモジュールでできており, 分割がないことをいう. 
+    特にカーネルの構造などで, 必要な機能を1つのバイナリにすべて組込み, 
+    外部のモジュールを必要としないものをモノリシックカーネルという. \cite{ref:mono}
+  \item[マイクロカーネル]\mbox{ }\\
+    OSのカーネルには最も汎用性の高い機能だけを持たせることで, 
+    カーネルを小型化することを設計思想として設計されたカーネル. 
+    \cite{ref:micro-kernel}
+  \item[HAL]\mbox{ }\\
+    Hardware Abstract Layerの略で, コンピュータのハードウェアと
+    ソフトウェア間に存在する抽象化レイヤーのこと. 
+    OSのカーネルからハードウェアごとに異なる差異を隠ぺいする機能を持ち, 
+    これによって異なるハードウェア上でほぼ同じカーネルコードを動かすことが
+    できる. \cite{ref:hal}
+\end{description}
+
+\begin{thebibliography}{9}
+  \bibitem{ref:computer-architecture} パターソン, ヘネシー, ``コンピュータの構成と設計'', 日経BP社
+  \bibitem{ref:exec} \url{http://ja.wikipedia.org/wiki/Exec}
+  \bibitem{ref:create-process} \url{http://msdn.microsoft.com/ja-jp/library/cc429066.aspx}
+  \bibitem{ref:ppid} \url{http://homepage3.nifty.com/owl_h0h0/unix/job/UNIX/unix_wrd.html}
+  \bibitem{ref:time-slice} \url{http://ja.wikipedia.org/wiki/タイムスライス}
+  \bibitem{ref:exclusive-control} \url{http://ja.wikipedia.org/wiki/排他制御}
+  \bibitem{ref:semaphore} \url{http://e-words.jp/w/E382BBE3839EE38395E382A9.html}
+  \bibitem{ref:mutex} \url{http://ja.wikipedia.org/wiki/ミューテックス}
+  \bibitem{ref:critical-section} \url{http://ja.wikipedia.org/wiki/クリティカルセクション}
+  \bibitem{ref:condition-variables} \url{http://ja.wikipedia.org/wiki/モニタ_(同期)}
+  \bibitem{ref:thread-safe} \url{http://e-words.jp/w/E382B9E383ACE38383E38389E382BBE383BCE38395.html}
+  \bibitem{ref:reentrant} \url{http://ja.wikipedia.org/wiki/リエントラント}
+  \bibitem{ref:smp} \url{http://ja.wikipedia.org/wiki/対称型マルチプロセッシング}
+  \bibitem{ref:crossbar} \url{http://e-words.jp/w/E382AFE383ADE382B9E38  \\  
+  390E383BCE382B9E382A4E38383E38381.html}
+  \bibitem{ref:cluster} \url{http://www.atmarkit.co.jp/news/200311/07/gartner23.html}
+  \bibitem{ref:lru} \url{http://e-words.jp/w/LRU.html}
+  \bibitem{ref:tlb} \url{http://www.sophia-it.com/content/TLB}
+  \bibitem{ref:tlb-wiki} \url{http://ja.wikipedia.org/wiki/トランスレーション・ルックアサイド・バッファ}
+  \bibitem{ref:fragmation} \url{http://e-words.jp/w/E38395E383A9E382B0E383A1E  \\  
+  383B3E38386E383BCE382B7E383A7E383B3.html}
+  \bibitem{ref:seg} \url{http://ja.wikipedia.org/wiki/セグメント方式}
+  \bibitem{ref:trojan} \url{http://e-words.jp/w/E38388E383ADE382A4E381AEE69CA8E9A6AC.html}
+  \bibitem{ref:spoofing} \url{http://e-words.jp/w/E381AAE3828AE38199E381BEE38197.html}
+  \bibitem{ref:backdoor} \url{http://www.atmarkit.co.jp/aig/02security/backdoor.html}
+  \bibitem{ref:cert} \url{http://www.atmarkit.co.jp/aig/02security/certcc.html}
+  \bibitem{ref:fat} \url{http://e-words.jp/w/FAT.html}
+  \bibitem{ref:nfs} \url{http://e-words.jp/w/NFS.html}
+  \bibitem{ref:samba} \url{http://e-words.jp/w/Samba.html}
+  \bibitem{ref:smb} \url{http://ja.wikipedia.org/wiki/Server_Message_Block}
+  \bibitem{ref:memorymaped} \url{http://www.weblio.jp/content/メモリマップトI/O}
+  \bibitem{ref:busy} \url{http://itpro.nibp.co.jp/article/Keyword/20070207/261219/}
+  \bibitem{ref:volatile} \url{http://ja.wikipedia.org/wiki/不揮発性メモリ}
+  \bibitem{ref:chara} \url{http://itpro.nibp.co.jp/article/Keyword/20081128/320380/}
+  \bibitem{ref:block} \url{http://itpro.nibp.co.jp/article/Keyword/20081023/317625/}
+  \bibitem{ref:multics} \url{http://www.multicians.org/}
+  \bibitem{ref:posix} \url{http://ja.wikipedia.org/wiki/POSIX}
+  \bibitem{ref:boot-loader} \url{http://e-words.jp/w/E38396E383BCE38388E383ADE383BCE38380.html}
+  \bibitem{ref:kernel} \url{http://ja.wikipedia.org/wiki/カーネル}
+  \bibitem{ref:kbuild} \url{http://www.oidon.net/linux/build-arm-linux}
+  \bibitem{ref:gpl} \url{http://ja.wikipedia.org/wiki/GNU_General_Public_License}
+  \bibitem{ref:mono} \url{http://www.weblio.jp/content/モノリシック}
+  \bibitem{ref:micro-kernel} \url{http://e-words.jp/w/E3839EE382A4E382AFE383ADE382ABE383BCE3838DE383AB.html}
+  \bibitem{ref:hal} \url{http://ja.wikipedia.org/wiki/Hardware_Abstract_Layer}
+\end{thebibliography}
+\end{document}

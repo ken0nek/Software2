@@ -1,6 +1,7 @@
 /* test0.c */
 #include <stdio.h>
 
+// define function
 int test(int i, int j)
 {
 	return (i * j);
